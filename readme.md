@@ -3,8 +3,6 @@
   <a href="" rel="noopener">
  <img width=200px height=200px  src="midias/ico_wite.ico" alt="Project logo"></a>
 </p>
-Sistema de backtest de estratégias no mercado de Forex.
-
 
 <h3 align="center">Project Title</h3>
 
