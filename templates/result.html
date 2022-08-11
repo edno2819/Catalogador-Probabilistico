@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div id="layoutSidenav_content" class="home">
+    <main>
+        <br>
+        <div class="container-fluid px-4 text-center">
+            <h1 class="search">Catalogação</h1>
+            <br>
+            <h4 class="result">Resultados: {{resultado_qtd}}</h3>
+                
+            <div class='div-result'>
+                <br>
+
+                <div class="mr-2" role="group" aria-label="First group" >
+                <!-- https://pt.stackoverflow.com/questions/149356/visualizar-texto-ao-posicionamento-do-mouse-sobre-palavra-ou-imagem -->
+                {% for chance in chances %}
+                        {% if chance.direc == "CALL" %}
+
+                            <button type="button" class="botoao call" id="passar_mouse">
+                                {{chance.par}} - {{chance.porcent}}% <br>
+                                {{chance.timeframe}} Min- {{chance.horario}}
+
+                                {% if chance.direc_after == "CALL" %}
+                                
+                                    <div id="mostrar" class='call' style="border-radius: 5px;">
+                                        <hr class="divider">
+                                        <a>VELA POSTERIOR</a><br>
+                                        {{chance.porcent_after}}% - {{chance.horario_after}}<br>
+                                    </div>
+                                {% else %}
+                                    <div id="mostrar" class='sell' style="border-radius: 5px;">
+                                        <hr class="divider">
+                                        <a>VELA POSTERIOR</a><br>
+                                        {{chance.porcent_after}}% - {{chance.horario_after}}<br>
+                                    </div>
+                                {% endif %}
+                            </button>
+
+                        {% else %}
+                            <button type="button" class="botoao sell" id="passar_mouse">
+                                {{chance.par}} - {{chance.porcent}}% <br>
+                                {{chance.timeframe}} Min- {{chance.horario}}
+
+                                {% if chance.direc_after == "CALL" %}
+                                    <div id="mostrar" class='call' style="border-radius: 5px;">
+                                        <hr class="divider">
+                                        <a>VELA POSTERIOR</a><br>
+                                        {{chance.porcent_after}}% - {{chance.horario_after}}<br>
+                                    </div>
+                                {% else %}
+                                    <div id="mostrar" class='sell' style="border-radius: 5px;">
+                                        <hr class="divider">
+                                        <a>VELA POSTERIOR</a><br>
+                                        {{chance.porcent_after}}% - {{chance.horario_after}}<br>
+                                    </div>
+                                {% endif %}
+
+                            </button>
+                        {% endif %}
+                {% endfor %}
+                </div>
+
+                <br>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+
+{% endblock %}
+

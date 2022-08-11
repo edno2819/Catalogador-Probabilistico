@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="br">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link rel="icon" href="{% static 'assets/img/ico_wite.ico' %}">
+        <title>Catalogador ROX</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/search.css' %}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+
+
+    <body class="sb-nav-fixed">
+            <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark py-4">
+                <img src="{% static 'assets/img/ico_wite.ico' %}" width="30" height="30" alt="" style="margin-left:15px">
+                <h4 class="ps-3 font-weight-bold text-light" >Catalogador ROX</h4>
+                <!-- Navbar Search-->
+                <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                    <div class="input-group">
+                    </div>
+                </form>
+                <!-- Navbar-->
+                <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/admin">Login</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="/admin/logout/">Logout</a></li>
+                            <li><a class="dropdown-item" href="/teste">Teste</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div id="layoutSidenav">
+                <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <li><hr class="dropdown-divider" /></li>
+                            <pre><h4> Filtros   <i class="fas fa-tachometer-alt"></i></h4></pre>
+
+                            <form action="{% url 'busca' %}" method="post">
+                              {% csrf_token %}
+
+                              <div class="input-group mb-3" style="width:80%; margin-left:5%">
+                                <select class="form-select" id="par" name="par">
+                                  <option selected disabled>Par</option>
+                                  <option value='0'>Todos</option>
+                                  {% for par in pares %}
+                                  <option value={{par.name}}>{{par.name}}</option>
+                                  {% endfor %}
+
+                                </select>
+                              </div>
+
+                              <div class="input-group mb-3" style="width:80%; margin-left:5%">
+                                  <select class="form-select" id="time" name="time">
+                                    <option selected disabled>Time</option>
+                                    <option value='0'>Todos</option>
+                                    <option value=1>1 Min</option>
+                                    <option value=5>5 Min</option>
+                                    <option value=15>15 Min</option>
+                                  </select>
+                                </div>
+                                <div class="input-group mb-3" style="width:80%; margin-left:5%">
+                                    <input class="form-select" placeholder='Hora'  type="number" id="hora" name="hora"min="0" max="23">
+                                </div>
+
+                                <div class="input-group mb-3" style="width:80%; margin-left:5%">
+                                <input class="form-select" placeholder='Minuto' type="number" id="minuto" name="minuto"min="0" max="59">
+                                </div>                                                                  
+
+                                <div class="align-middle" style="margin-left:5%">
+                                  <input type="submit" value='Buscar'>
+                                </div>
+
+                            </form>
+
+                            <li><hr class="dropdown-divider" /></li>
+                        </div>
+                    </div>
+
+                    <div class="sb-sidenav-footer" style='background-color: rgb(15, 15, 15);'>
+                        <div class="small">Logado como: {{ request.user.username }}</div>
+                        <a href="https://www.linkedin.com/in/edno-almeida/"  target="_blank" 
+                        style="text-decoration:none; color: rgb(204, 193, 193);">Feito por EATec</a>
+                    </div>
+                    </nav>
+
+            </div>
+            {% block main %}
+            {% endblock %}
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    </body>
+</html>
