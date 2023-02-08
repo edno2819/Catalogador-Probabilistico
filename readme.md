@@ -4,7 +4,7 @@
  <img width=200px height=200px  src="midias/ico_wite.ico" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Project Title</h3>
+<h3 align="center">Catalogador Probabilístico</h3>
 
 ## Dependências:
 - Iq Option API
@@ -12,8 +12,8 @@
 - Apschedule
 
 
-## 🧐 About <a name = "about"></a>
-Site feito em Django para catalogar as paridades da IQ Option e obter sinais probabilisticos
+## 🧐 Sobre <a name = "about"></a>
+Site feito em Django para catalogar as paridades da IQ Option e obter sinais probabilísticos.
 
 ## Frontend:
 <p align="center">
@@ -21,22 +21,20 @@ Site feito em Django para catalogar as paridades da IQ Option e obter sinais pro
 </p>
 
 
-## 📝 Feactures
+## 📝 Features
 
-- Sistema Tarefaz (Execução de tarefaz usando o painel admin do Django)
+- Sistema Tarefas (Execução de tarefas usando o painel admin do Django)
 - 
   <img width=500px height=250px  src="midias/tarefaz.png" alt="Project logo">
 - Modelo do resultado do backtest
 -   <img width=500px height=250px  src="midias/backtest_model.png" alt="Project logo">
 
 
-## ⛏️ Built Using <a name = "built_using"></a>
+## ⛏️ Construido com <a name = "built_using"></a>
 
-- Postgres - Database
-- Django - Web Framework
-- Botstrap -  Framework CSS
-- Python - Language
-
+- Postgres 
+- Django  
+- Python
 
 ## Setup
 
